@@ -1,0 +1,41 @@
+
+<agm-map [latitude]="mapCoords.getLatitude()" [longitude]="mapCoords.getLongitude()" [zoom]="13">
+  <div *ngIf="showMarkers">
+    <agm-marker  *ngFor="let marker of markersCoords" [latitude]="marker.latitude" [longitude]="marker.longitude">
+    </agm-marker>
+  </div>
+
+  <div *ngIf="showMarkersFromRange">
+    <agm-marker  *ngFor="let marker of markersWithinRange" [latitude]="marker.latitude" [longitude]="marker.longitude">
+    </agm-marker>
+  </div>
+
+</agm-map>
+
+<br>
+<ul class="hospitals">
+<li *ngFor="let hospital of hospitals">
+  {{hospital.address}}
+</li>
+</ul>
+
+<button (click)="showAllMarkers()">Get Markers</button>
+
+<button (click)="getMarkersFromRange(46, 22, 44, 20)">Get Timisoara Markers</button>
+
+<br>
+<br>
+<form>
+  <label>X1:
+    <input [(ngModel)]="x1" >
+  </label>
+  <label>Y1:
+    <input [(ngModel)]="y1" >
+  </label>
+  <label>X2:
+    <input [(ngModel)]="x2" >
+  </label>
+  <label>Y2:
+    <input [(ngModel)]="y2" >
+  </label>
+</form>
