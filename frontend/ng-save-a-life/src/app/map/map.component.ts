@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {HospitalService} from "../services/hospital.service";
 import {Hospital} from "../hospital";
 import {GeocodingService} from "../services/geocoding.service";
@@ -9,7 +9,7 @@ import {Coordinates} from "../Coordinates";
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit{
 
   mapCoords: Coordinates;
   hospitals: Hospital[];
@@ -27,12 +27,17 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getHospitals();
+    this.getHospitals(() => this.showAllMarkers());
   }
 
-  getHospitals(): void {
+  getHospitals(callback) {
+
     this.hospitalService.getHospitals()
       .subscribe(hospitals => this.hospitals = hospitals);
+
+    setTimeout(() => {
+      callback();
+    }, 1000);
   }
 
   updateCoordsFromAddress( address: string) {
@@ -55,13 +60,13 @@ export class MapComponent implements OnInit {
   }
 
   getAllMarkerCoords() {
-    for (let hospital of this.hospitals) {
-      this.updateCoordsFromAddress(hospital.address);
-    }
+      for (let hospital of this.hospitals) {
+        this.updateCoordsFromAddress(hospital.address);
+      }
   }
 
   showAllMarkers() {
-    this.getAllMarkerCoords()
+    this.getAllMarkerCoords();
     this.showMarkers = true;
   }
 
@@ -72,7 +77,7 @@ export class MapComponent implements OnInit {
     console.log(this.x1 + " " + this.y1 + " " + this.x2 + " " + this.y2);
 
     for (let marker of this.markersCoords) {
-      if ( (marker.longitude > this.x1) && (marker.longitude < this.y1) && (marker.latitude < this.x2) && (marker.longitude > this.y2)) {
+      if ((marker.longitude > this.x1) && (marker.longitude < this.y1) && (marker.latitude < this.x2) && (marker.longitude > this.y2)) {
         this.markersWithinRange.push(marker);
       }
     }
