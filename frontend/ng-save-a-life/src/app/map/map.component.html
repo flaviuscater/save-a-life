@@ -21,21 +21,21 @@
 
 <button (click)="showAllMarkers()">Get Markers</button>
 
-<button (click)="getMarkersFromRange(46, 22, 44, 20)">Get Timisoara Markers</button>
+<button (click)="getMarkersFromRange()">Get Timisoara Markers</button>
 
 <br>
 <br>
 <form>
   <label>X1:
-    <input [(ngModel)]="x1" >
+    <input [(ngModel)]="x1" name="x1">
   </label>
   <label>Y1:
-    <input [(ngModel)]="y1" >
+    <input [(ngModel)]="y1" name="y1">
   </label>
   <label>X2:
-    <input [(ngModel)]="x2" >
+    <input [(ngModel)]="x2" name="x2" >
   </label>
   <label>Y2:
-    <input [(ngModel)]="y2" >
+    <input [(ngModel)]="y2" name="y2" >
   </label>
 </form>

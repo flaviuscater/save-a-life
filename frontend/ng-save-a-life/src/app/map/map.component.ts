@@ -69,9 +69,12 @@ export class MapComponent implements OnInit {
 
     this.getAllMarkerCoords();
 
+    console.log(this.x1 + " " + this.y1 + " " + this.x2 + " " + this.y2);
+
     for (let marker of this.markersCoords) {
-      if ( marker.longitude > this.x1 && marker.longitude < this.y1 && marker.latitude < this.x2 && marker.longitude > this.y2)
-          this.markersWithinRange.push(marker);
+      if ( (marker.longitude > this.x1) && (marker.longitude < this.y1) && (marker.latitude < this.x2) && (marker.longitude > this.y2)) {
+        this.markersWithinRange.push(marker);
+      }
     }
     this.showMarkersFromRange = true;
   }
