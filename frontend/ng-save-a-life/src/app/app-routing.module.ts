@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MapComponent} from "./map/map.component";
+import {MapComponent} from "./components/map/map.component";
+import {HomeComponent} from "./components/home/home.component";
+import {AboutComponent} from "./components/about/about.component";
+import {HospitalInformationComponent} from "./components/hospital-information/hospital-information.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/map', pathMatch: 'full'},
-  { path: 'map', component: MapComponent}
+  { path: '', component: HomeComponent},
+  { path: 'about', component: AboutComponent},
+  { path: 'info', component: HospitalInformationComponent}
 ];
 
 @NgModule({

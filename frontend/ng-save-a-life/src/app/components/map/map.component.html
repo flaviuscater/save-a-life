@@ -1,0 +1,28 @@
+
+<agm-map [latitude]="mapCoords.getLatitude()" [longitude]="mapCoords.getLongitude()" [zoom]="13">
+  <div *ngIf="showMarkers">
+    <agm-marker  *ngFor="let marker of markersCoords" [latitude]="marker.latitude" [longitude]="marker.longitude">
+      <agm-info-window>This is a city</agm-info-window>
+    </agm-marker>
+  </div>
+</agm-map>
+
+<mat-form-field>
+  <mat-select [(value)]="selectedCity" (selectionChange)="updateCityMarkers()">
+    <mat-option>None</mat-option>
+    <mat-option value="Timișoara">Timișoara</mat-option>
+    <mat-option value="București">Bucuresti</mat-option>
+    <mat-option value="Cluj">Cluj</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p class="select-helper">Showing marks from: {{selectedCity}}</p>
+
+<button class="reset-markers" (click)="resetMarkers()">Reset Markers</button>
+
+<br>
+
+
+
+
+

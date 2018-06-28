@@ -1,0 +1,25 @@
+agm-map {
+  height: 300px;
+  width: 700px;
+  position: absolute;
+  bottom: 35px;
+  right: 500px;
+}
+
+mat-form-field {
+  position: absolute;
+  bottom: 65px;
+  right: 300px;
+}
+
+.select-helper {
+  position: absolute;
+  bottom: 35px;
+  right: 280px
+}
+
+.reset-markers {
+  position: absolute;
+  bottom: 85px;
+  right: 170px
+}

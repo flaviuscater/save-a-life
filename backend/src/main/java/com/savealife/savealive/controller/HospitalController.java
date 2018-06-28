@@ -15,12 +15,12 @@ public class HospitalController {
     private HospitalService hospitalService;
 
     @CrossOrigin (origins = "http://localhost:4200")
-    @RequestMapping(value = "/hospitals", method = RequestMethod.GET)
+    @GetMapping(value = "/hospitals")
     public List<Hospital> getHospitals() {
         return hospitalService.getAllHospitals();
     }
 
-    @RequestMapping(value = "/hospital/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/hospital/{id}")
     public Hospital getHospital(@PathVariable("id") Long id) {
         return hospitalService.getHospitalById(id);
     }

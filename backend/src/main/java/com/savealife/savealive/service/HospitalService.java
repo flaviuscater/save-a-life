@@ -15,7 +15,7 @@ public class HospitalService implements  IHospitalService {
 
     @Override
     public Hospital getHospitalById(Long id) {
-       return  hospitalRepository.findById(id).get();
+       return hospitalRepository.findById(id).get();
     }
 
     @Override

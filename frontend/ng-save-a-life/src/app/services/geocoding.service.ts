@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import 'rxjs/add/operator/map'
+import { Observable } from "rxjs";
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -18,7 +18,7 @@ export class GeocodingService {
     this.API_URL = `https://maps.googleapis.com/maps/api/geocode/json?key=${this.API_KEY}&address=`;
   }
 
-  findFromAddress(address: string, postalcode?: string, place?: string, province?: string, region?: string, country?: string): Observable<any> {
+  getJsonDataFromAddress(address: string, postalcode?: string, place?: string, province?: string, region?: string, country?: string): Observable<any> {
     let compositeAddress = [address];
 
     if (postalcode) compositeAddress.push(postalcode);
@@ -31,4 +31,5 @@ export class GeocodingService {
 
     return this.httpClient.get(url);
   }
+
 }

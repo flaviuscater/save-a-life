@@ -27,6 +27,7 @@ public class SavealiveApplication {
             hospitalRepository.save(new Hospital("Spitalul Clinic de Urgență pentru Copii Louis Țurcanu", "Strada Doctor Iosif Nemoianu 2, Timișoara 300011"));
             hospitalRepository.save(new Hospital("Spitalul Militar de Urgență Dr. Victor Popescu", "Strada Gheorghe Lazăr 7, Timișoara"));
             hospitalRepository.save(new Hospital("Spitalul Universitar de Urgență București", "Splaiul Independenței 169, București 050098"));
+            hospitalRepository.save(new Hospital("Spitalul Clinic Județean de Urgență Cluj", "Strada Clinicilor 3-5, Cluj-Napoca, Cluj 400000"));
             logger.info("The sample data has been generated");
         };
     }
