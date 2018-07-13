@@ -8,7 +8,6 @@ import {HospitalInformationComponent} from "./components/hospital-information/ho
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'about', component: AboutComponent},
-  { path: 'info', component: HospitalInformationComponent}
 ];
 
 @NgModule({

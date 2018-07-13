@@ -24,5 +24,6 @@ h1.example-app-name {
 .example-is-mobile .example-sidenav-container {
   flex: 1 0 auto;
 }
-
-
+.bg {
+  background-image: url(../assets/images/background-image.jpg);
+}

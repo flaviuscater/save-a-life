@@ -12,18 +12,18 @@
       <mat-nav-list>
         <a mat-list-item routerLink="">Home</a>
         <a mat-list-item routerLink="about">About</a>
-        <a mat-list-item routerLink="info">Info</a>
         <button mat-button [matMenuTriggerFor]="account">My Account</button>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
+      <div style="background-image: url('../assets/images/background-image.jpg');">
       <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
 
   </mat-sidenav-container>
 </div>
-
 <mat-menu #account="matMenu">
   <button mat-menu-item >Account Settings</button>
   <button mat-menu-item >Log out</button>
