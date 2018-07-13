@@ -1,4 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
+import {HospitalService} from "../../services/hospital.service";
+import {Observable} from "rxjs/Rx";
+import {Hospital} from "../../hospital";
 
 @Component({
   selector: 'app-about',
@@ -7,16 +10,16 @@ import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 })
 export class AboutComponent implements OnInit, AfterViewInit {
 
-  hospitals = [
-    { title: 'Spitalul Judetean', subtitle: 'Timisoara, Romania'},
-    { title: 'Spitalul Militar', subtitle: 'Timisoara, Romania'},
-    { title: 'Spitalul Militar', subtitle: 'Timisoara, Romania'},
-    { title: 'Spitalul Militar', subtitle: 'Timisoara, Romania'},
-  ];
+  hospitals: Hospital[];
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef,
+              private hospitalService: HospitalService) { }
 
   ngOnInit() {
+     this.hospitalService.getHospitals()
+      .subscribe(hospital => {this.hospitals = hospital},
+        error1 => console.log(error1)
+        );
   }
 
   ngAfterViewInit() {

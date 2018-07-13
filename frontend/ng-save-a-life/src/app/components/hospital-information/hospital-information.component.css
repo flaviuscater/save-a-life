@@ -1,7 +1,18 @@
 
 .hospital-info-card {
   max-width: 400px;
+  max-height: 400px;
   background-color: darkred;
+}
+.hospital-image {
+  max-width: 400px;
+  max-height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.visitButton {
+  background-color: white;
 }
 
 

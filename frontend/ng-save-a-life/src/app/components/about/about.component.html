@@ -1,11 +1,15 @@
 
+<html>
+<body>
 <h1>Hospitals</h1>
-
 <mat-grid-list cols="3" rowHeight="1:1" >
   <div *ngFor="let hospital of hospitals">
     <mat-grid-tile>
-      <app-hospital-information title="{{hospital.title}}" subtitle="{{hospital.subtitle}}">
+      <app-hospital-information title=" {{hospital.id}}. {{hospital.name}}" subtitle="{{hospital.city}}"
+                                visitUrl="{{hospital.visitUrl}}" imgName= "{{hospital.imgName}}" descriptionText="{{hospital.descriptionText}}" >
       </app-hospital-information>
     </mat-grid-tile>
   </div>
 </mat-grid-list>
+</body>
+</html>

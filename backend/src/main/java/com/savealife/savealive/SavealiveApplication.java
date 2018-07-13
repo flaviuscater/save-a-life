@@ -9,11 +9,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+
 
 @SpringBootApplication
 public class SavealiveApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(SavealiveApplication.class);
+    private static final Hospital[] hospitals = HospitalsInitializer.getHospitalsArray();
 
 	public static void main(String[] args) {
 		SpringApplication.run(SavealiveApplication.class, args);
@@ -22,12 +25,7 @@ public class SavealiveApplication {
     @Bean
     public CommandLineRunner setup(HospitalRepository hospitalRepository) {
         return (args) -> {
-            hospitalRepository.save(new Hospital("Spitalul Clinic Județean de Urgență Pius Brînzeu Timișoara", "Bulevardul Liviu Rebreanu 156, Timișoara 300723"));
-            hospitalRepository.save(new Hospital("Spitalul Clinic Municipal de Urgență", "Strada Gheorghe Dima, Timișoara"));
-            hospitalRepository.save(new Hospital("Spitalul Clinic de Urgență pentru Copii Louis Țurcanu", "Strada Doctor Iosif Nemoianu 2, Timișoara 300011"));
-            hospitalRepository.save(new Hospital("Spitalul Militar de Urgență Dr. Victor Popescu", "Strada Gheorghe Lazăr 7, Timișoara"));
-            hospitalRepository.save(new Hospital("Spitalul Universitar de Urgență București", "Splaiul Independenței 169, București 050098"));
-            hospitalRepository.save(new Hospital("Spitalul Clinic Județean de Urgență Cluj", "Strada Clinicilor 3-5, Cluj-Napoca, Cluj 400000"));
+            Arrays.stream(hospitals).forEach(hospital -> hospitalRepository.save(hospital));
             logger.info("The sample data has been generated");
         };
     }

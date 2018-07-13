@@ -9,17 +9,18 @@ export class HospitalInformationComponent implements OnInit {
 
   @Input() title: String;
   @Input() subtitle: String;
-  @Input() text: String;
-  @Input() image: String;
-  @Input() url: String;
+  @Input() descriptionText: String;
+  @Input() imgName: string;
+  @Input() visitUrl: string;
+  imgPath: String;
 
   constructor() { }
 
   ngOnInit() {
-    this.image = "../../assets/images/Spitalul_Judetean_Timisoara.jpg";
+    this.imgPath = "../../assets/images/" + this.imgName;
   }
 
   navigateToPage() {
-    window.open('https://www.google.com');
+    window.open(this.visitUrl);
   }
 }
