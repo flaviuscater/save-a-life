@@ -1,4 +1,5 @@
 
+
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>Menu</mat-icon></button>
@@ -17,16 +18,16 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div style="background-image: url('../assets/images/background-image.jpg');">
-      <router-outlet></router-outlet>
+      <div class="bg-image">
+        <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
 
   </mat-sidenav-container>
 </div>
+
 <mat-menu #account="matMenu">
   <button mat-menu-item >Account Settings</button>
-  <button mat-menu-item >Log out</button>
+  <button mat-menu-item (click)="logout()">Log out</button>
 </mat-menu>
 
-<!--<router-outlet></router-outlet> -->

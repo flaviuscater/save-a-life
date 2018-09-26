@@ -1,5 +1,6 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { MediaMatcher } from "@angular/cdk/layout";
+import {ChangeDetectorRef, Component} from '@angular/core';
+import {MediaMatcher} from "@angular/cdk/layout";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,11 @@ import { MediaMatcher } from "@angular/cdk/layout";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authservice: AuthService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -19,4 +21,9 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  logout() {
+    this.authservice.logout();
+  }
+
 }

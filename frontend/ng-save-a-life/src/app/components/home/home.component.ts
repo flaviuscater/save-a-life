@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 
 @Component({
@@ -6,6 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  constructor() {}
+export class HomeComponent implements OnInit{
+
+  constructor(private _service: AuthService) {}
+
+  ngOnInit() {
+    this._service.checkCredentials();
+  }
+
+  logout() {
+    this._service.logout();
+  }
 }
