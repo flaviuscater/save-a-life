@@ -6,7 +6,8 @@ import {
   MatListModule,
   MatMenuModule, MatSelectModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatInputModule
 } from '@angular/material';
 import {LayoutModule} from "@angular/cdk/layout";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -24,7 +25,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatMenuModule,
     MatSelectModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatMenuModule,
     MatSelectModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
   ],
 })
 export class MaterialModule { }

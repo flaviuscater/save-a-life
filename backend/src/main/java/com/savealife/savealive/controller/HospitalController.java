@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin (origins = "http://localhost:4200")
 @RestController
 public class HospitalController {
 
     @Autowired
     private HospitalService hospitalService;
 
-    @CrossOrigin (origins = "http://localhost:4200")
     @GetMapping(value = "/hospitals")
     public List<Hospital> getHospitals() {
         return hospitalService.getAllHospitals();

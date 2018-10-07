@@ -7,7 +7,7 @@
   right: 25px;
 }
 
-:host ::ng-deep mat-form-field {
+:host ::ng-deep .cities-selection {
   position: absolute;
   bottom: 35px;
   right: 400px;
@@ -27,4 +27,18 @@
 
 .container {
   margin-left: 20px;
+}
+
+.add-hospital-card {
+  max-width: 400px;
+}
+
+.hospital-form {
+  min-width: 150px;
+  max-width: 500px;
+  margin-left: 20px;
+}
+
+.hospital-input-field {
+  width: 100%;
 }
