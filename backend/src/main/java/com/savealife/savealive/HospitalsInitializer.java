@@ -5,6 +5,7 @@ import com.savealife.savealive.model.Hospital;
 public class HospitalsInitializer {
     private static Hospital[] hospitalsArray = {
             new Hospital(
+                    1L,
                     "Spitalul Clinic Județean de Urgență Pius Brînzeu Timișoara",
                     "Bulevardul Liviu Rebreanu 156, Timișoara 300723",
                     "Timisoara, Romania",
@@ -15,6 +16,7 @@ public class HospitalsInitializer {
             ),
 
             new Hospital(
+                    2L,
                     "Spitalul Clinic Municipal de Urgență",
                     "Strada Gheorghe Dima, Timișoara",
                     "Timisoara, Romania",
@@ -25,6 +27,7 @@ public class HospitalsInitializer {
             ),
 
             new Hospital(
+                    3L,
                     "Spitalul Clinic de Urgență pentru Copii Louis Țurcanu",
                     "Strada Doctor Iosif Nemoianu 2, Timișoara 300011",
                     "Timisoara, Romania",
@@ -35,6 +38,7 @@ public class HospitalsInitializer {
 
             ),
             new Hospital(
+                    4L,
                     "Spitalul Militar de Urgență Dr. Victor Popescu",
                     "Strada Gheorghe Lazăr 7, Timișoara",
                     "Timisoara, Romania",
@@ -45,6 +49,7 @@ public class HospitalsInitializer {
 
             ),
             new Hospital(
+                    5L,
                     "Spitalul Universitar de Urgență București",
                     "Splaiul Independenței 169, București 050098",
                     "Bucuresti, Romania",
@@ -55,6 +60,7 @@ public class HospitalsInitializer {
 
             ),
             new Hospital(
+                    6L,
                     "Spitalul Clinic Județean de Urgență Cluj",
                     "Strada Clinicilor 3-5, Cluj-Napoca, Cluj 400000",
                     "Cluj-Napoca, Timisoara",

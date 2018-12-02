@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 @Service("hospitalService")
@@ -23,7 +22,7 @@ public class HospitalService implements  IHospitalService {
     }
 
     @Override
-    public List<Hospital> getAllHospitals() {
+    public Iterable<Hospital> getAllHospitals() {
         return hospitalRepository.findAll();
     }
 

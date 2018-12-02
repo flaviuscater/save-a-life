@@ -1,5 +1,5 @@
-import { NgModule} from "@angular/core";
-import { CommonModule} from "@angular/common";
+import { NgModule} from '@angular/core';
+import { CommonModule} from '@angular/common';
 import {
   MatButtonModule, MatCardModule, MatGridListModule,
   MatIconModule,
@@ -9,8 +9,11 @@ import {
   MatToolbarModule,
   MatInputModule
 } from '@angular/material';
-import {LayoutModule} from "@angular/cdk/layout";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {LayoutModule} from '@angular/cdk/layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   imports: [
@@ -26,7 +29,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatFileUploadModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +46,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatFileUploadModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule { }

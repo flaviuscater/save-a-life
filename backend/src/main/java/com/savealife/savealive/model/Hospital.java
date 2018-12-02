@@ -1,20 +1,26 @@
 package com.savealife.savealive.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "hospital")
 public class Hospital {
 
     @Id
-    @GeneratedValue
+    //@GeneratedValue
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
+    @Column(name = "city")
     private String city;
+    @Column(name = "visitUrl")
     private String visitUrl;
+    @Column(name = "imgName")
     private String imgName;
+    @Column(name = "descriptiontext")
     private String descriptionText;
 
     public Hospital() {
@@ -30,8 +36,9 @@ public class Hospital {
         this.descriptionText = "";
     }
 
-    public Hospital(String name, String address, String city, String visitUrl, String imgName, String descriptionText) {
+    public Hospital(Long id, String name, String address, String city, String visitUrl, String imgName, String descriptionText) {
         this(name, address);
+        this.id = id;
         this.city = city;
         this.visitUrl = visitUrl;
         this.imgName = imgName;

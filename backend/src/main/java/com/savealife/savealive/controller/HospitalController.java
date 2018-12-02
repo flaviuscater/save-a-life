@@ -3,21 +3,20 @@ package com.savealife.savealive.controller;
 import com.savealife.savealive.model.Hospital;
 import com.savealife.savealive.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin (origins = "http://localhost:4200")
 @RestController
+@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 public class HospitalController {
 
     @Autowired
     private HospitalService hospitalService;
 
     @GetMapping(value = "/hospitals")
-    public List<Hospital> getHospitals() {
+    public Iterable<Hospital> getHospitals() {
         return hospitalService.getAllHospitals();
     }
 
