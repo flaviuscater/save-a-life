@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
-import {HospitalService} from "../../services/hospital.service";
-import {Observable} from "rxjs/Rx";
-import {Hospital} from "../../hospital";
+import {HospitalService} from '../../services/hospital.service';
+import {Hospital} from '../../hospital';
 
 @Component({
   selector: 'app-about',
@@ -17,7 +16,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
      this.hospitalService.getHospitals()
-      .subscribe(hospital => {this.hospitals = hospital},
+      .subscribe(hospital => {this.hospitals = hospital; },
         error1 => console.log(error1)
         );
   }

@@ -3,21 +3,24 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Hospital} from '../hospital';
 import {catchError} from 'rxjs/internal/operators';
+import { Cookie } from 'ng2-cookies';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + Cookie.get('access_token')})
 };
 
 @Injectable()
 export class HospitalService {
 
   private hospitalsUrl = 'http://localhost:8080/hospitals';
+   /*headers = new HttpHeaders({
+  'Authorization': 'Bearer ' + Cookie.get('access_token')});*/
 
   constructor( private httpClient: HttpClient) {
   }
 
   getHospitals () {
-    return this.httpClient.get<Hospital[]>(this.hospitalsUrl);
+    return this.httpClient.get<Hospital[]>(this.hospitalsUrl, httpOptions);
   }
 
   addHospital (hospital: Hospital) {

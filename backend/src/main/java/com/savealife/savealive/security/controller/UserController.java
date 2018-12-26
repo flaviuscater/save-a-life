@@ -7,6 +7,7 @@ import com.savealife.savealive.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,16 +23,16 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users", method = RequestMethod.GET)
 
-    public List<User> listUser() {
+    public List<User> listUsers() {
         return userService.findAll();
     }
 
     //@Secured("ROLE_USER")
     @PreAuthorize("hasRole('USER')")
     ////@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public User getOne(@PathVariable(value = "id") Long id) {
-        return userService.findById(id);
+    @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+    public UserDetails getOne(@PathVariable(value = "username") String  username) {
+        return userService.loadUserByUsername(username);
     }
 
 

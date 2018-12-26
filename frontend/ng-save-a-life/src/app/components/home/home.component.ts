@@ -3,6 +3,7 @@ import {AuthService} from '../../services/auth.service';
 import {HospitalService} from '../../services/hospital.service';
 import {Hospital} from '../../hospital';
 import {MatSnackBar} from '@angular/material';
+import {Authority} from '../../Authority';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._service.checkCredentials();
+    this._service.fetchUserRoles('user2');
   }
 
   logout() {
@@ -31,5 +33,9 @@ export class HomeComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
+  }
+
+  getUserRoles() {
+    console.log(this._service.getUserRoles());
   }
 }

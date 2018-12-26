@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {Credentials} from '../../Credentials';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,12 @@ import {AuthService} from '../../services/auth.service';
 })
 export class LoginComponent {
 
-  public loginData = {username: 'john', password: '123'};
+  public username: string;
+  public password: string;
 
   constructor(private _service: AuthService) {}
 
   login() {
-    this._service.obtainAccessToken(this.loginData);
+    this._service.obtainAccessToken(new Credentials(this.username, this.password));
   }
 }

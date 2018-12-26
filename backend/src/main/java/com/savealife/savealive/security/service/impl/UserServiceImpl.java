@@ -17,7 +17,6 @@ import java.util.*;
 
 
 @Service(value = "userService")
-
 public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
