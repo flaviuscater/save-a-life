@@ -17,12 +17,12 @@ export class AuthService {
     const credentials = loginData;
     const headers = new HttpHeaders({'Content-type': 'application/json'});
     localStorage.setItem('loggedUser', JSON.stringify(loginData.getUsername()));
-   // this.setGlobalLoggerUser(loginData);
 
     this._http.post('http://localhost:8080/token/generate-token', credentials, {headers: headers})
       .subscribe(
         data => {
           this.saveToken(data);
+          this._router.navigate(['/']);
         },
         err => alert('Invalid Credentials')
       );
@@ -32,16 +32,7 @@ export class AuthService {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.token, expireDate);
     console.log('Obtained Access token');
-    this._router.navigate(['/']);
-    // window.location.href = 'http://localhost:4200';
   }
-
-  /*  getResource(resourceUrl): Observable<any> {
-      const headers = new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'Authorization': 'Bearer ' + Cookie.get('access_token')});
-      return this._http.get(resourceUrl, { headers: headers })
-        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }*/
 
   checkCredentials() {
     if (!Cookie.check('access_token')) {
