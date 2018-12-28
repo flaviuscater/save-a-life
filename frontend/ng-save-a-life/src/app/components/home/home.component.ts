@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {HospitalService} from '../../services/hospital.service';
-import {Hospital} from '../../hospital';
-import {MatSnackBar} from '@angular/material';
-import {Authority} from '../../Authority';
 
 
 @Component({
@@ -13,29 +9,16 @@ import {Authority} from '../../Authority';
 })
 export class HomeComponent implements OnInit {
 
-  hospital: Hospital = new Hospital('', '', '', '', '', '');
-  constructor(private _service: AuthService, private hospitalService: HospitalService, private snackBar: MatSnackBar) {}
+  constructor(private _service: AuthService) {}
 
   ngOnInit() {
     this._service.checkCredentials();
-    this._service.fetchUserRoles('user2');
+    if (JSON.parse(localStorage.getItem('userDetails')) == null) {
+      this._service.fetchUserRoles( JSON.parse(localStorage.getItem('loggedUser')));
+    }
   }
 
   logout() {
     this._service.logout();
-  }
-  addHospital() {
-    this.hospitalService.addHospital(this.hospital);
-    this.openSnackBar('Hospital added successfully', '');
-  }
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
-  getUserRoles() {
-    console.log(this._service.getUserRoles());
   }
 }

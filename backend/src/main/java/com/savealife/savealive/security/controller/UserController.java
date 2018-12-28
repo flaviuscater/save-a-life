@@ -28,8 +28,8 @@ public class UserController {
     }
 
     //@Secured("ROLE_USER")
-    @PreAuthorize("hasRole('USER')")
-    ////@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    //@PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
     public UserDetails getOne(@PathVariable(value = "username") String  username) {
         return userService.loadUserByUsername(username);

@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 import {HospitalService} from '../../services/hospital.service';
-import {Hospital} from '../../hospital';
+import {Hospital} from '../../models/hospital';
 
 @Component({
   selector: 'app-about',

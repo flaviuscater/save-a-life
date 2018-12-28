@@ -11,15 +11,13 @@ import {AgmCoreModule} from '@agm/core';
 import {HospitalService} from './services/hospital.service';
 import {GeocodingService} from './services/geocoding.service';
 import { HomeComponent } from './components/home/home.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AboutComponent } from './components/about/about.component';
 import {MaterialModule} from './material.module';
 import {SharingService} from './services/sharing.service';
 import { HospitalInformationComponent } from './components/hospital-information/hospital-information.component';
 import {AuthService} from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
+import { HospitalInputFormComponent } from './components/hospital-input-form/hospital-input-form.component';
 
 
 @NgModule({
@@ -30,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     AboutComponent,
     HospitalInformationComponent,
     LoginComponent,
+    HospitalInputFormComponent,
   ],
   imports: [
     MaterialModule,

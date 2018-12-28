@@ -3,15 +3,12 @@ import {Cookie} from 'ng2-cookies';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {Credentials} from '../Credentials';
-import {Hospital} from '../hospital';
-import {UserDetails} from '../UserDetails';
-import {Authority} from '../Authority';
+import {Credentials} from '../models/Credentials';
+import {UserDetails} from '../models/UserDetails';
+import {Authority} from '../models/Authority';
 
 @Injectable()
 export class AuthService {
-
-  private userDetails: UserDetails;
 
   constructor(private _http: HttpClient, private _router: Router) {
   }
@@ -19,8 +16,9 @@ export class AuthService {
   obtainAccessToken(loginData: Credentials) {
     const credentials = loginData;
     const headers = new HttpHeaders({'Content-type': 'application/json'});
+    localStorage.setItem('loggedUser', JSON.stringify(loginData.getUsername()));
+   // this.setGlobalLoggerUser(loginData);
 
-    console.log(credentials);
     this._http.post('http://localhost:8080/token/generate-token', credentials, {headers: headers})
       .subscribe(
         data => {
@@ -59,13 +57,14 @@ export class AuthService {
   fetchUserRoles(username: string) {
     this.getAuthorities(username).subscribe(
       (next: UserDetails) => {
-          this.userDetails = next;
+          localStorage.setItem('userDetails', JSON.stringify(next));
+          console.log('set user roles to: ' + next);
       }
     );
   }
 
   getUserRoles(): Authority[] {
-    return this.userDetails['authorities'];
+    return JSON.parse(localStorage.getItem('userDetails'))['authorities'];
   }
 
   getAuthorities(username: string): Observable<UserDetails> {

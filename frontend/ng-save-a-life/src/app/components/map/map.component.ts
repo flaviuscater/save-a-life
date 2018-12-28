@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HospitalService} from '../../services/hospital.service';
-import {Hospital} from '../../hospital';
+import {Hospital} from '../../models/hospital';
 import {GeocodingService} from '../../services/geocoding.service';
-import {Coordinates} from '../../Coordinates';
+import {Coordinates} from '../../models/Coordinates';
 
 @Component({
   selector: 'app-map',
@@ -40,7 +40,7 @@ export class MapComponent implements OnInit {
       .getJsonDataFromAddress(address.valueOf())
       .subscribe(response => {
         if (response.status === 'OK') {
-            if ((response.results[0].address_components[3].long_name.indexOf(this.selectedCity)) != -1) {
+            if ((response.results[0].address_components[3].long_name.indexOf(this.selectedCity)) !== -1) {
               const lat = response.results[0].geometry.location.lat;
               const lng = response.results[0].geometry.location.lng;
               this.markersCoords.push( new Coordinates(lat, lng));
