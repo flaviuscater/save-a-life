@@ -1,9 +1,22 @@
-
-<div class="container" >
+<div class="container">
   <div class="content">
     <span>Welcome !!</span>
-    <a class="btn btn-default pull-right"(click)="logout()" href="#">Logout</a>
+    <a class="btn btn-default pull-right" (click)="logout()" href="#">Logout</a>
   </div>
+</div>
+
+<div class="container">
+  <h1>Notifications</h1>
+  <mat-grid-list cols="5" rowHeight="1:1">
+    <div *ngFor="let notification of notifications">
+      <mat-grid-tile>
+        <app-notification-info title="{{notification.hospitalName}}"
+                               bloodDonationAmountNeeded="{{notification.bloodDonationAmountNeeded}}"
+                               description="{{notification.description}}">
+        </app-notification-info>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
 </div>
 
 <app-map></app-map>

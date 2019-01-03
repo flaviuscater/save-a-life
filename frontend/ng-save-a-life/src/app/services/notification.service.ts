@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {Cookie} from 'ng2-cookies';
 import {Hospital} from '../models/hospital';
-import {catchError} from 'rxjs/internal/operators';
-import { Cookie } from 'ng2-cookies';
+import {throwError} from 'rxjs';
+import {Notification} from '../models/notification';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + Cookie.get('access_token')})
 };
 
 @Injectable()
-export class HospitalService {
+export class NotificationService {
 
-  private hospitalsUrl = 'http://localhost:8080/hospitals';
-   /*headers = new HttpHeaders({
-  'Authorization': 'Bearer ' + Cookie.get('access_token')});*/
+  private notificationsUrl = 'http://localhost:8080/notifications';
 
-  constructor( private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) { }
+
+  getNotifications () {
+    return this.httpClient.get<Notification[]>(this.notificationsUrl, httpOptions);
   }
 
-  getHospitals () {
-    return this.httpClient.get<Hospital[]>(this.hospitalsUrl, httpOptions);
-  }
-
-  addHospital (hospital: Hospital) {
-    return this.httpClient.post<Hospital>(this.hospitalsUrl, hospital, httpOptions)
+  addNotification (notification: Notification) {
+    return this.httpClient.post<Notification>(this.notificationsUrl, notification, httpOptions)
       .subscribe(
         h => console.log(h),
         error1 => this.handleError(error1)

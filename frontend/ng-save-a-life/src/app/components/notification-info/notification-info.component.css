@@ -1,0 +1,21 @@
+
+.notification-info-card {
+  max-width: 400px;
+  max-height: 800px;
+  background-color: cornflowerblue;
+}
+.notification-image {
+  max-width: 200px;
+  max-height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.donationButton {
+  background-color: white;
+}
+
+.donationInput {
+  bottom: 85px;
+  right: 400px;
+}

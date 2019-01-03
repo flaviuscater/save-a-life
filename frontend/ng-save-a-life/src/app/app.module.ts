@@ -18,6 +18,9 @@ import { HospitalInformationComponent } from './components/hospital-information/
 import {AuthService} from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { HospitalInputFormComponent } from './components/hospital-input-form/hospital-input-form.component';
+import { AddNotificationComponent } from './components/add-notification/add-notification.component';
+import {NotificationService} from './services/notification.service';
+import { NotificationInfoComponent } from './components/notification-info/notification-info.component';
 
 
 @NgModule({
@@ -29,6 +32,8 @@ import { HospitalInputFormComponent } from './components/hospital-input-form/hos
     HospitalInformationComponent,
     LoginComponent,
     HospitalInputFormComponent,
+    AddNotificationComponent,
+    NotificationInfoComponent,
   ],
   imports: [
     MaterialModule,
@@ -40,7 +45,7 @@ import { HospitalInputFormComponent } from './components/hospital-input-form/hos
       apiKey: 'AIzaSyDQCFQLG-EtcuX-8MX23WGSUvhy-yM4Vto'
     }),
   ],
-  providers: [ HospitalService, GeocodingService, SharingService, AuthService],
+  providers: [ HospitalService, GeocodingService, SharingService, AuthService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

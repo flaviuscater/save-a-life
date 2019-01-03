@@ -17,7 +17,7 @@ export class HospitalInformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.imgPath = "../../assets/images/" + this.imgName;
+    this.imgPath = '../../assets/images/' + this.imgName;
   }
 
   navigateToPage() {

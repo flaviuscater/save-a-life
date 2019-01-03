@@ -1,0 +1,16 @@
+
+.add-notification-card {
+  max-height: 800px;
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.notification-form {
+  min-width: 150px;
+  max-width: 500px;
+  margin-left: 20px;
+}
+
+.notification-input-field{
+  width: 100%;
+}
