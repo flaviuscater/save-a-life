@@ -18,7 +18,7 @@ export class AuthService {
     const headers = new HttpHeaders({'Content-type': 'application/json'});
     localStorage.setItem('loggedUser', JSON.stringify(loginData.getUsername()));
 
-    this._http.post('http://localhost:8080/token/generate-token', credentials, {headers: headers})
+    this._http.post('https://sleepy-fjord-97142.herokuapp.com/token/generate-token', credentials, {headers: headers})
       .subscribe(
         data => {
           this.saveToken(data);
@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   getAuthorities(username: string): Observable<UserDetails> {
-    const usersUrl = 'http://localhost:8080/users/' + username;
+    const usersUrl = 'https://sleepy-fjord-97142.herokuapp.com/users/' + username;
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + Cookie.get('access_token')})
     };

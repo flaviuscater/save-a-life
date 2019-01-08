@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable()
 export class NotificationService {
 
-  private notificationsUrl = 'http://localhost:8080/notifications';
+  private notificationsUrl = 'https://sleepy-fjord-97142.herokuapp.com/notifications';
 
   constructor(private httpClient: HttpClient) { }
 

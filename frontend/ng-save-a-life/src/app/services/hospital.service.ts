@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable()
 export class HospitalService {
 
-  private hospitalsUrl = 'http://localhost:8080/hospitals';
+  private hospitalsUrl = 'https://sleepy-fjord-97142.herokuapp.com/hospitals';
    /*headers = new HttpHeaders({
   'Authorization': 'Bearer ' + Cookie.get('access_token')});*/
 
