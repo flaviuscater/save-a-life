@@ -22,7 +22,7 @@ export class AuthService {
       .subscribe(
         data => {
           this.saveToken(data);
-          this._router.navigate(['/']);
+          this._router.navigate(['/home']);
         },
         err => alert('Invalid Credentials')
       );

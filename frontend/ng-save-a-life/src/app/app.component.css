@@ -31,4 +31,6 @@ h1.example-app-name {
   width: 100%;
   background-image: url('../assets/images/blur-hospital.jpg');
   height: 100vh;
+  background-repeat: repeat;
 }
+

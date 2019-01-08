@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.savealife</groupId>
-    <artifactId>backend</artifactId>
+    <artifactId>save-a-lherokife-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>backend</name>
-    <description>Demo project for Spring Boot</description>
+    <name>save-a-life-backend</name>
+    <description>Spring Boot backend server</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <full-artifact-name>target/${project.artifactId}-${project.version}.jar</full-artifact-name>
     </properties>
 
     <dependencies>
@@ -40,11 +41,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
@@ -56,6 +52,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.13</version>
         </dependency>
 
         <dependency>
@@ -83,8 +80,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>2.0.6</version>
+                <configuration>
+                    <appName>sleepy-fjord-97142</appName>
+                    <includeTarget>false</includeTarget>
+                    <includes>
+                        <include>${basedir}/${full-artifact-name}</include>
+                    </includes>
+                    <jdkVersion>1.8</jdkVersion>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -jar ${full-artifact-name}</web>
+                    </processTypes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
 
 </project>

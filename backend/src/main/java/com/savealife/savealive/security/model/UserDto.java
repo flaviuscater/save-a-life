@@ -6,6 +6,7 @@ public class UserDto {
     private String password;
     private int age;
     private int salary;
+    private Boolean donatedToday;
 
     public String getUsername() {
         return username;
@@ -38,4 +39,13 @@ public class UserDto {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    public Boolean hasDonatedToday() {
+        return donatedToday;
+    }
+
+    public void setDonatedToday(boolean donatedToday) {
+        this.donatedToday = donatedToday;
+    }
+
 }

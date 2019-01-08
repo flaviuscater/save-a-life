@@ -1,8 +1,8 @@
 
 .add-notification-card {
-  max-height: 800px;
   max-width: 400px;
   margin-left: 20px;
+  max-height: 800px;
 }
 
 .notification-form {

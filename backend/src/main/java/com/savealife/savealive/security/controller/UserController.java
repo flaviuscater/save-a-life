@@ -22,7 +22,6 @@ public class UserController {
     //@Secured({"ROLE_ADMIN", "ROLE_USER"})
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-
     public List<User> listUsers() {
         return userService.findAll();
     }
@@ -31,8 +30,8 @@ public class UserController {
     //@PreAuthorize("hasRole('USER')")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
-    public UserDetails getOne(@PathVariable(value = "username") String  username) {
-        return userService.loadUserByUsername(username);
+    public User getOne(@PathVariable(value = "username") String  username) {
+        return userService.findOne(username);
     }
 
 

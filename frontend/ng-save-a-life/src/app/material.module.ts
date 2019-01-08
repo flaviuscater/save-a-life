@@ -11,7 +11,6 @@ import {
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatFileUploadModule } from 'angular-material-fileupload';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
@@ -30,7 +29,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatCardModule,
     MatGridListModule,
     MatInputModule,
-    MatFileUploadModule,
     MatSnackBarModule
   ],
   exports: [
@@ -47,7 +45,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatCardModule,
     MatGridListModule,
     MatInputModule,
-    MatFileUploadModule,
     MatSnackBarModule
   ],
 })

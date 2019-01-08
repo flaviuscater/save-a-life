@@ -2,6 +2,7 @@ package com.savealife.savealive;
 
 import com.savealife.savealive.model.Hospital;
 import com.savealife.savealive.repository.HospitalRepository;
+import com.savealife.savealive.security.controller.UserController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
 
-
 @SpringBootApplication
 public class SavealiveApplication {
 
@@ -20,6 +20,7 @@ public class SavealiveApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SavealiveApplication.class, args);
+
 	}
 
     @Bean

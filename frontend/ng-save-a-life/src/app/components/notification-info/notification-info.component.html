@@ -1,4 +1,4 @@
-<mat-card class="notification-info-card">
+<mat-card class="notification-info-card" tabindex="0">
 
   <mat-card-header>
     <mat-card-title>{{hospitalName}}</mat-card-title>
@@ -12,8 +12,8 @@
     <p>Blood donation needed: {{bloodDonationAmountNeeded}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <input matInput placeholder="Blood donation amount" [(ngModel)]="bloodDonated" name="Donation" class="donationInput">
-    <button mat-button (click)="donateBlood()" class="donationButton">Donate</button>
+    <input matInput placeholder="Blood donation amount" [(ngModel)]="bloodDonated" name="Donation" class="donationInput" appearance="fill">
+    <button mat-button (click)="donateBlood()" class="donationButton" [disabled]="donatedToday()">Donate</button>
   </mat-card-actions>
 
 </mat-card>

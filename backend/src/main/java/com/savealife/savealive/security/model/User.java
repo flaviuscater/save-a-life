@@ -1,6 +1,7 @@
 package com.savealife.savealive.security.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -9,7 +10,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String username;
@@ -20,11 +21,13 @@ public class User {
     private long salary;
     @Column
     private int age;
+    @Column(name = "donated_today", nullable=false, columnDefinition="boolean default false")
+    private Boolean donatedToday;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLES", joinColumns = {
-            @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
-            @JoinColumn(name = "ROLE_ID") })
+            @JoinColumn(name = "USER_ID")}, inverseJoinColumns = {
+            @JoinColumn(name = "ROLE_ID")})
     private Set<Role> roles;
 
     public long getId() {
@@ -74,4 +77,13 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public Boolean hasDonatedToday() {
+        return donatedToday;
+    }
+
+    public void setDonatedToday(boolean donatedToday) {
+        this.donatedToday = donatedToday;
+    }
+
 }
